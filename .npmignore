@@ -1,0 +1,10 @@
+.config
+.github
+.vscode
+example
+features
+node_modules
+screenshots
+src
+tests
+.gitignore

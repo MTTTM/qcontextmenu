@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        menu,
+        menu-item {
+            margin: 0;
+            padding: 0;
+        }
+        
+        menu {
+            width: 150px;
+            padding: 12px 0px;
+            position: fixed;
+            z-index: 10;
+            background: rgb(255, 255, 255);
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 12px 0px;
+            border-radius: 5px;
+            font-size: 12px;
+            display: none;
+            left: 504px;
+            top: 335px
+        }
+        
+        menu-item:hover>menu {
+            display: block !important;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Nice to meet you</h1>
+    <script src="./index.js"></script>
+    <script>
+        let menuTool = new ContextMenu(document.body);
+        window.oncontextmenu = function(e) {
+            e.preventDefault();
+            let x = e.clientX;
+            let y = e.clientY;
+            menuTool.show(function() {
+                return [{
+                    target: "edit",
+                    text: "<b>编辑</b>节点1",
+                    callback: function(node) {
+                        console.log(node);
+                    },
+                    children: [{
+                        target: "edit",
+                        text: "编辑节点2",
+                        callback: function(node) {
+                            console.log(node);
+                        },
+                        children: [{
+                            target: "edit",
+                            text: "编辑节点3",
+                            callback: function(node) {
+                                console.log(node);
+                            },
+
+                        }, {
+                            target: "addChild",
+                            text: "添加子节点",
+                            callback: function(node) {
+                                console.log(node);
+                            },
+                        }, {
+                            target: "addBrother",
+                            text: "添加兄弟节点",
+                            callback: function(node) {
+                                console.log(node);
+                            },
+                        }, ]
+                    }]
+                }, {
+                    target: "addChild",
+                    text: "添加子节点",
+                    callback: function(node) {
+                        console.log(node);
+                    },
+                }, {
+                    target: "addBrother",
+                    text: "添加兄弟节点",
+                    callback: function(node) {
+                        console.log(node);
+                    },
+                }, {
+                    target: "noThing",
+                    text: "啥事都不干",
+                    callback: function(node) {
+                        console.log("do nothing callback", node);
+                    },
+                }]
+
+            }, {
+                x: x + "px",
+                y: y + "px"
+            })
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo</title>
+</head>
+
+<body>
+    hello,world!!
+    <script src="./tmp/index.js"></script>
+    <script>
+        let menuTool = new ContextMenu(document.body);
+        window.oncontextmenu = function(e) {
+            e.preventDefault();
+            let x = e.clientX;
+            let y = e.clientY;
+            menuTool.show(function() {
+                return [{
+                    target: "edit",
+                    text: "<b>多级</b>(more level)",
+                    callback: function(node) {
+                        console.log(node);
+                    },
+                    children: [{
+                        target: "edit",
+                        text: "编辑节点2",
+                        callback: function(node) {
+                            console.log(node);
+                        },
+                        children: [{
+                            target: "edit",
+                            text: "编辑节点3",
+                            callback: function(node) {
+                                console.log(node);
+                            },
+
+                        }, {
+                            target: "addChild",
+                            text: "添加子节点",
+                            callback: function(node) {
+                                console.log(node);
+                            },
+                        }, {
+                            target: "addBrother",
+                            text: "添加兄弟节点",
+                            callback: function(node) {
+                                console.log(node);
+                            },
+                        }, ]
+                    }]
+                }, {
+                    target: "addChild",
+                    text: "添加子节点",
+                    callback: function(node) {
+                        console.log(node);
+                    },
+                }, {
+                    target: "addBrother",
+                    text: "添加兄弟节点",
+                    callback: function(node) {
+                        console.log(node);
+                    },
+                }, {
+                    target: "noThing",
+                    text: "啥事都不干",
+                    callback: function(node) {
+                        console.log("do nothing callback", node);
+                    },
+                }]
+
+            }, {
+                x: x + "px",
+                y: y + "px"
+            })
+        };
+    </script>
+</body>
+
+</html>
