@@ -1,6 +1,6 @@
 {
     "name": "qcontextmenu",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "qcontextmenu is a simple  contextmenu menu tool for web",
     "main": "dist/index.js",
     "files": [
