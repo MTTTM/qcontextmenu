@@ -5,7 +5,7 @@
 * Simple packaging
 * Unlimited levels
 * Browser boundary recognition and adaptation
-* [demo](https://github.com/MTTTM/qcontextmenu)
+* [demo](https://mtttm.github.io/qcontextmenu/)
 
 ## License
 BSD 3-Clause License
